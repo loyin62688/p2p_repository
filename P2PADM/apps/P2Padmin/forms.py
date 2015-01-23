@@ -4,22 +4,29 @@ from django.contrib.auth.models import User
 class LoginForm(forms.Form):  
     username = forms.CharField(  
         required=True,  
-        label=u"username",  
+#        label=u"username",  
         error_messages={'required': 'please enter your name'},  
         widget=forms.TextInput(  
             attrs={  
-                'class':'col-sm-2 control-label',
-                'for':'inputEmail3',
+                'class':'form-control',
+                'type':'email',
+                'id':'inputEmail3',
+                'placeholder':'Email',
+                'name':'username',
             }  
         ),  
     )      
     password = forms.CharField(  
         required=True,  
-        label=u"password",  
+#        label=u"pwd",  
         error_messages={'required': u'please enter your password'},  
         widget=forms.PasswordInput(  
             attrs={  
                 'placeholder':u"password",  
+                'type':'password',
+                'class':'form-control',
+                'id':'inputPassword3',
+                'name':'password',
             }  
         ),  
     )     

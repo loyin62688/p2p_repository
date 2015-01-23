@@ -11,14 +11,14 @@
     <title>General Project Info</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="/static/css/dashboard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-  <script src="./Chart.js-master/Chart.js"></script>
+  <script src="/static/Chart.js-master/Chart.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,12 +32,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+ <!--         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar">123</span>
             <span class="icon-bar">234</span>
             <span class="icon-bar">345</span>
           </button>
+-->
           <a class="navbar-brand" href="#">项目名称</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -58,33 +59,50 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-<li class="active ">
+				<li class="active ">
 					<a href="javascript:;">
 					<i class="icon-bookmark-empty"></i> 
-					<span class="title">UI Features</span>
+					<span class="title">P2P</span>
+					<!--
 					<span class="selected"></span>
 					<span class="arrow open"></span>
+					-->
 					</a>
 					<ul class="sub-menu">
 						<li >
 							<a href="ui_general.html">
-							General</a>
+							大华p2p</a>
 						</li>
 						<li class="active">
 							<a href="ui_buttons.html">
-							Buttons</a>
+							easy4ip</a>
 						</li>
+					</ul>
+				</li>
+				<li class="active ">
+					<a href="javascript:;">
+					<i class="icon-bookmark-empty"></i> 
+					<span class="title">P2POEM</span>
+					</a>
+					<ul class="sub-menu">
 						<li >
-							<a href="ui_modals.html">
-							Enhanced Modals</a>
+							<a href="ui_general.html">
+							印度</a>
+						</li>
+						<li class="active">
+							<a href="ui_buttons.html">
+							西班牙</a>
 						</li>
 					</ul>
 				</li>
       <!--      <li class="active"><a href="#">乐橙</a></li>  -->
+    
             <li><a href="#">华视威迅</a></li>
-            <li><a href="#">easy4ip</a></li>
-            <li><a href="#">dahuap2p</a></li>
+            <li><a href="#">乐橙</a></li>
+            <li><a href="#">待定</a></li>
           </ul>
+          
+          <!--
           <ul class="nav nav-sidebar">
             <li><a href="">Nav item</a></li>
             <li><a href="">Nav item again</a></li>
@@ -97,6 +115,7 @@
             <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
           </ul>
+          -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
@@ -108,7 +127,7 @@
 				labels : ["January","February","March","April","May","June","July"],
 				datasets : [
 				{
-				fillColor : "rgba(220,220,220,0.5)",
+				fillColor : "rgba(110,110,110,0.5)",
 				strokeColor : "rgba(220,220,220,1)",
 				pointColor : "rgba(220,220,220,1)",
 				pointStrokeColor : "#fff",
@@ -156,104 +175,6 @@
                   <td>adipiscing</td>
                   <td>elit</td>
                 </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -265,7 +186,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>

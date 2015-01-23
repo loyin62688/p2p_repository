@@ -10,7 +10,9 @@ from django.forms.formsets import formset_factory
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage  
 from django.contrib.auth.decorators import login_required 
 from .forms import LoginForm
+#from django.views.decorators.csrf import csrf_protect
 
+#@csrf_protect 
 def login(request):  
     if request.method == 'GET':  
         form = LoginForm()  
@@ -23,12 +25,17 @@ def login(request):
             user = auth.authenticate(username=username, password=password)  
             if user is not None and user.is_active:  
                 auth.login(request, user)  
-                return render_to_response('index.html', RequestContext(request))  
+                return render_to_response('monitor.html', RequestContext(request))  
             else:  
                 return render_to_response('login.html', RequestContext(request, {'form': form,'password_is_wrong':True}))  
         else:  
             return render_to_response('login.html', RequestContext(request, {'form': form,}))
 
+#@csrf_protect
 def index(request):
     form = LoginForm()
     return render_to_response('login.html',{'form':form})
+
+
+#def getP2PInfo(request):
+#    return render_to_response('monitor.html')
