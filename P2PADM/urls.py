@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login',login),
     url(r'^index',index),
+    url(r'^test$',p2pInfoMon),
 )

@@ -3,9 +3,10 @@ from django.db import models
 # Create your models here.
 class P2PServerInfo(models.Model):
     project = models.CharField(max_length=50)
-    body_text = models.TextField()
     col_date = models.DateTimeField()
-    relay_accnum = models.IntegerField()
-    p2p_accnum = models.IntegerField()
+    p2p_onlinenum = models.CharField(max_length=50)
+    rel_onlinenum = models.CharField(max_length=50)
+    relay_accnum = models.CharField(max_length=50)
+    p2p_accnum = models.CharField(max_length=50)
     def __unicode__(self):
         return self.headline

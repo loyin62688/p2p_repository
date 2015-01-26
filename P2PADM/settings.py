@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'P2PADM.apps.P2Padmin',
+    'P2PADM.apps.getP2PInfo_cron'
 )
 
 MIDDLEWARE_CLASSES = (
