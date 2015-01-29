@@ -54,5 +54,5 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         m_p2pdevnum,m_p2pcounts = self.getP2PSerInfo()
         m_relaycounts,m_relaydevnum = self.getP2PRelayInfo()
-        p2pInfo_mod = P2PServerInfo(project = 'easy4ip', col_date = datetime.datetime.now()-datetime.timedelta(days=7-i), p2p_onlinenum = m_p2pdevnum, rel_onlinenum = m_relaydevnum, relay_accnum = m_relaycounts, p2p_accnum = m_p2pcounts)
+        p2pInfo_mod = P2PServerInfo(project = 'easy4ip', col_date = datetime.datetime.now(), p2p_onlinenum = m_p2pdevnum, rel_onlinenum = m_relaydevnum, relay_accnum = m_relaycounts, p2p_accnum = m_p2pcounts)
         p2pInfo_mod.save()
