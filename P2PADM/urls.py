@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^login',login),
     url(r'^index',index),
     url(r'^test$',p2pInfoMon),
+    url(r'^downloadcsv',downloadP2PCSV),
 )
