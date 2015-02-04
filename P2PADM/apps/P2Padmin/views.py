@@ -41,6 +41,8 @@ def index(request):
 
 def getInfoByDay(m_date):
     ins_list = P2PServerInfo.objects.filter(project='easy4ip',col_date__range = (m_date - datetime.timedelta(days=2),m_date))
+    print 'len ins_list ======='
+    print len(ins_list)
     if len(ins_list) == 3:
 #            m_p2p_onlinenum = int(ins_list[2].p2p_onlinenum) - int(ins_list[1].p2p_onlinenum)
 #            m_rel_onlinenum = int(ins_list[2].rel_onlinenum) - int(ins_list[1].rel_onlinenum)
@@ -74,9 +76,13 @@ def p2pInfoMon(request):
         x['m_p2p_accnum'] = i[3]
         return x
     for i in range(0,7):
-        m_Infosets.append(getInfoByDay(datetime.datetime.today()-datetime.timedelta(days=i)))
-        m_Infosets_ins.append(initSerInfoDir(getInfoByDay(datetime.datetime.today()-datetime.timedelta(days=i))))        
+        x =datetime.datetime.today()-datetime.timedelta(days=i)
+        print 'x ======'
+        print x
+        m_Infosets.append(getInfoByDay(x))
+        m_Infosets_ins.append(initSerInfoDir(getInfoByDay(x)))        
     for i in range(0,7):
+        print 'B'
         m_p2p_onlinenum_list.append(m_Infosets[i][0])
         m_rel_onlinenum_list.append(m_Infosets[i][1])
         m_relay_accnum_list.append(m_Infosets[i][2])
@@ -95,6 +101,7 @@ def downloadP2PCSV(request):
     writer = csv.writer(response)
     writer.writerow(title)
     for i in range(0,7):
+        print 'C'
         x = []
         x.append(p2pdate[i])
         x.extend(getInfoByDay(datetime.datetime.today()-datetime.timedelta(days=i)))
