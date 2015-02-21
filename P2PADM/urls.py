@@ -8,8 +8,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^login',login),
-    url(r'^index',index),
-    url(r'^test$',p2pInfoMon),
-    url(r'^downloadcsv',downloadP2PCSV),
+    url(r'^$',login),
+    url(r'^login/$',login),
+    url(r'^p2pinfo/(.*)$',requires_login(p2pInfoMon)),
+    url(r'^downloadcsv',requires_login(downloadP2PCSV)),
 )

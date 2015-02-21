@@ -15,6 +15,13 @@ import datetime
 from P2PADM.apps.P2Padmin.models import *
 import csv
 
+def requires_login(view):
+    def new_view(request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            return HttpResponseRedirect('/login/')
+        return view(request, *args, **kwargs)
+    return new_view
+
 #@csrf_protect 
 def login(request):  
     if request.method == 'GET':  
@@ -28,8 +35,10 @@ def login(request):
             user = auth.authenticate(username=username, password=password)  
             if user is not None and user.is_active:  
                 auth.login(request, user)  
+                print 'login sucess!!!!!!!!'
                 return render_to_response('monitor.html', RequestContext(request))  
             else:  
+                print 'login failed!!!!'
                 return render_to_response('login.html', RequestContext(request, {'form': form,'password_is_wrong':True}))  
         else:  
             return render_to_response('login.html', RequestContext(request, {'form': form,}))
@@ -39,8 +48,8 @@ def index(request):
     form = LoginForm()
     return render_to_response('login.html',{'form':form})
 
-def getInfoByDay(m_date):
-    ins_list = P2PServerInfo.objects.filter(project='easy4ip',col_date__range = (m_date - datetime.timedelta(days=2),m_date))
+def getInfoByDay(m_date,m_project):
+    ins_list = P2PServerInfo.objects.filter(project=m_project,col_date__range = (m_date - datetime.timedelta(days=2),m_date))
     print 'len ins_list ======='
     print len(ins_list)
     if len(ins_list) == 3:
@@ -61,7 +70,8 @@ def getInfoByDay(m_date):
 
 #def getP2PInfo(request):
 #    return render_to_response('monitor.html')
-def p2pInfoMon(request):
+def p2pInfoMon(request,m_p2pwebsite):
+    print 'm_p2pwebsite =' + m_p2pwebsite
     m_Infosets = []
     m_Infosets_ins = []
     m_p2p_onlinenum_list = []
@@ -75,13 +85,13 @@ def p2pInfoMon(request):
         x['m_relay_accnum'] = i[2]
         x['m_p2p_accnum'] = i[3]
         return x
-    for i in range(0,7):
+    for i in range(0,3):
         x =datetime.datetime.today()-datetime.timedelta(days=i)
         print 'x ======'
         print x
-        m_Infosets.append(getInfoByDay(x))
-        m_Infosets_ins.append(initSerInfoDir(getInfoByDay(x)))        
-    for i in range(0,7):
+        m_Infosets.append(getInfoByDay(x,m_p2pwebsite))
+        m_Infosets_ins.append(initSerInfoDir(getInfoByDay(x,m_p2pwebsite)))        
+    for i in range(0,3):
         print 'B'
         m_p2p_onlinenum_list.append(m_Infosets[i][0])
         m_rel_onlinenum_list.append(m_Infosets[i][1])
