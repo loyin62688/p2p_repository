@@ -21,9 +21,10 @@ print BASE_DIR
 SECRET_KEY = '8tnb^6lw#8r0&=x^@bnkye@4e*^n40&-30dvx^yy_2lr6gmkc3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 

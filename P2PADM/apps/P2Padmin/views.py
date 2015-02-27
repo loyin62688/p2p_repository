@@ -59,13 +59,18 @@ def getInfoByDay(m_date,m_project):
         m_rel_onlinenum = int(ins_list[2].rel_onlinenum)
         m_relay_accnum = int(ins_list[2].relay_accnum) - int(ins_list[1].relay_accnum)
         m_p2p_accnum = int(ins_list[2].p2p_accnum) - int(ins_list[1].p2p_accnum)
-    else:
+    elif len(ins_list) == 2:
 #            m_p2p_onlinenum = int(ins_list[1].p2p_onlinenum) - int(ins_list[0].p2p_onlinenum)
 #            m_rel_onlinenum = int(ins_list[1].rel_onlinenum) - int(ins_list[0].rel_onlinenum)
         m_p2p_onlinenum = int(ins_list[1].p2p_onlinenum)
         m_rel_onlinenum = int(ins_list[1].rel_onlinenum)
         m_relay_accnum = int(ins_list[1].relay_accnum) - int(ins_list[0].relay_accnum)
         m_p2p_accnum = int(ins_list[1].p2p_accnum) - int(ins_list[0].p2p_accnum)
+    else:
+        m_p2p_onlinenum=0
+        m_rel_onlinenum=0
+        m_relay_accnum=0
+        m_p2p_accnum=0
     return [m_p2p_onlinenum,m_rel_onlinenum,m_relay_accnum,m_p2p_accnum]
 
 #def getP2PInfo(request):
@@ -85,13 +90,13 @@ def p2pInfoMon(request,m_p2pwebsite):
         x['m_relay_accnum'] = i[2]
         x['m_p2p_accnum'] = i[3]
         return x
-    for i in range(0,3):
+    for i in range(0,7):
         x =datetime.datetime.today()-datetime.timedelta(days=i)
         print 'x ======'
         print x
         m_Infosets.append(getInfoByDay(x,m_p2pwebsite))
         m_Infosets_ins.append(initSerInfoDir(getInfoByDay(x,m_p2pwebsite)))        
-    for i in range(0,3):
+    for i in range(0,7):
         print 'B'
         m_p2p_onlinenum_list.append(m_Infosets[i][0])
         m_rel_onlinenum_list.append(m_Infosets[i][1])
